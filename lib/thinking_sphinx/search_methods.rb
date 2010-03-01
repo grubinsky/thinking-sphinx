@@ -364,7 +364,7 @@ module ThinkingSphinx
       # times, and so on. If there are still missing ids on the last retry, they
       # are shown as nils.
       # 
-      def search(*args)
+      def sphinx_search(*args)
         ThinkingSphinx::Search.new *search_options(args)
       end
       
