@@ -21,7 +21,7 @@ module ThinkingSphinx
         for_options[:with][attrib] = underlying_value key, value
       end
       
-      ThinkingSphinx.search *(args + [for_options])
+      ThinkingSphinx.sphinx_search *(args + [for_options])
     end
     
     def facet_names
@@ -46,7 +46,7 @@ module ThinkingSphinx
     def populate
       facet_names.each do |name|
         search_options = facet_search_options.merge(:group_by => name)
-        add_from_results name, ThinkingSphinx.search(
+        add_from_results name, ThinkingSphinx.sphinx_search(
           *(args + [search_options])
         )
       end
